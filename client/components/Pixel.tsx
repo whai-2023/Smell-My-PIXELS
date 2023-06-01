@@ -1,43 +1,26 @@
 import { useState } from 'react'
 
 export default function Pixel() {
-  const [borderColor, setBorderColor] = useState(getRandomColor())
-  const [backColor, setBackColor] = useState(getRandomColor())
-  const [innerColor, setInnerColor] = useState(getRandomColor())
+  const [color, setColor] = useState(getRandomColor())
 
   function handleClick() {
-    setBorderColor(getRandomColor())
-    setBackColor(getRandomColor())
-    setInnerColor(getRandomColor())
+    setColor(getRandomColor())
   }
 
-  function handleMouseEnter() {
-    setBorderColor('red')
-    setBackColor('black')
-    setInnerColor('black')
+  function handleDragEnter() {
+    setColor('black')
   }
 
   return (
     <div
       style={{
-        backgroundColor: `${backColor}`,
+        backgroundColor: `${color}`,
         height: '12px',
         width: '12px',
       }}
       onClick={handleClick}
-    >
-      <div
-        style={{
-          border: `2px solid ${borderColor}`,
-          backgroundColor: `${innerColor}`,
-          height: '4px',
-          width: '4px',
-          margin: 'auto',
-        }}
-        onClick={handleClick}
-        onMouseEnter={handleMouseEnter}
-      ></div>
-    </div>
+      onDragEnter={handleDragEnter}
+    ></div>
   )
 }
 
