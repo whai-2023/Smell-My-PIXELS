@@ -1,35 +1,29 @@
 import React, { useState } from 'react'
 
 interface Props {
-    onAddPenColour: (newPenColour: string) => void
-  }
+  onAddPenColour: (newPenColour: string) => void
+}
 
 export default function AddPenColourForm(props: Props) {
-    const [text, setText] = useState('')
+  function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    props.onAddPenColour(event.target.value)
+  }
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        setText(event.target.value)
-      }
-
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault()
-    
-        props.onAddPenColour(text)
-      }
-
-    return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="new-background">Select Pen Colour:</label>
-                <input
-                    type="text"
-                    name="new-pen"
-                    id="new-pen"
-                    value={text}
-                    onChange={handleChange}
-            />
-            <button>Submit</button>
-        </form>
-        </>
-    )
+  return (
+    <>
+      <form>
+        <label htmlFor="new-background">Select Pen Colour:</label>
+        <select id="new-pen" name="new-pen" onChange={handleChange}>
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="black">Black</option>
+          <option value="white">White</option>
+        </select>
+      </form>
+    </>
+  )
 }
