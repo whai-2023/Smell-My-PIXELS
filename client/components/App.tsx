@@ -7,6 +7,7 @@ import { useState } from 'react'
 function App() {
   const [backgroundColour, setBackgroundColour] = useState('white')
   const [penColour, setPenColour] = useState('black')
+  const [resetSwitch, setResetSwitch] = useState(false)
 
   function handleBackground(newBackground: string) {
     setBackgroundColour(newBackground)
@@ -23,17 +24,14 @@ function App() {
       <div className="canvas">
         <>
           {Array.from({ length: 15000 }, (_, index) => (
-            <Pixel key={index} changeBackgroundColour={backgroundColour} changePenColour={penColour} />
+            <Pixel key={index} changeBackgroundColour={backgroundColour} changePenColour={penColour} resetSwitch={resetSwitch}/>
           ))}
         </>
       </div>
       <div className="navbar">
-        <h2>Background Colours</h2>
         <AddColourBackgroundForm onAddBackgroundColour={handleBackground} />
-        <h2>Pen Colours</h2>
         <AddPenColourForm onAddPenColour={handlePen} />
-        <h2>Clear Canvas</h2>
-        <ClearCanvasButton onButtonClearCanvas={handleClearButton} />
+        <ClearCanvasButton onButtonClearCanvas={handleClearButton} resetSwitch={resetSwitch} setResetSwitch={setResetSwitch}/>
       </div>
     </div>
   )

@@ -3,12 +3,18 @@ import { useState, useEffect } from 'react'
 interface Props {
   changeBackgroundColour: string
   changePenColour: string
+  resetSwitch: boolean
 }
 
 export default function Pixel(props: Props) {
   const [color, setColor] = useState(props.changeBackgroundColour)
   const [isDrawn, setIsDrawn] = useState(false)
   const [colour, setPenColour] = useState(props.changePenColour)
+  
+  useEffect(() => {
+    setIsDrawn(false)
+    setColor(props.changeBackgroundColour)
+  }, [props.resetSwitch]) //useEffect watches for resetAwitch to be altered
   
 
   useEffect(() => {
