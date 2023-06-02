@@ -2,32 +2,35 @@ import Pixel from './Pixel'
 import AddColourBackgroundForm from './AddColourBackgroundForm'
 import AddPenColourForm from './AddPenColourForm'
 import { useState } from 'react'
+import Colours from './Colours'
 
 function App() {
-  const [background, setBackground] = useState(['white'])
-  const [pen, setPen] = useState(['black'])
+  const [backgroundColour, setBackgroundColour] = useState('white')
+  const [penColour, setPenColour] = useState('black')
 
-  function handleBackground(newBackground: any) {
-    setBackground([...background, newBackground])
+  function handleBackground(newBackground: string) {
+    setBackgroundColour(newBackground)
   }
 
   function handlePen(newPen: string) {
-    setPen([...pen, newPen])
+    setPenColour(newPen)
   }
-
+  console.log(penColour)
   return (
     <div className="app">
-      <div className="navbar">
-        <h1>Colours!</h1>
-        <AddColourBackgroundForm onAddBackground={handleBackground} />
-        <AddPenColourForm onAddPenColour={handlePen} />
-      </div>
       <div className="canvas">
         <>
           {Array.from({ length: 15000 }, () => (
             <Pixel />
           ))}
         </>
+      </div>
+      <div className="navbar">
+        {/* <Colours /> */}
+        <h2>Background Colours</h2>
+        <AddColourBackgroundForm onAddBackground={handleBackground} />
+        <h2>Pen Colours</h2>
+        <AddPenColourForm onAddPenColour={handlePen} />
       </div>
     </div>
   )

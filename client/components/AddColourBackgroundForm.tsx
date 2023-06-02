@@ -1,35 +1,33 @@
 import React, { useState } from 'react'
 
 interface Props {
-    onAddBackground: (newBackground: string) => void
-  }
+  onAddBackgroundColour: (newBackgroundColour: string) => void
+}
 
 export default function AddColourBackgroundForm(props: Props) {
-    const [text, setText] = useState('')
+  function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
+    props.onAddBackgroundColour(event.target.value)
+  }
 
-    function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        setText(event.target.value)
-      }
-
-    function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-        event.preventDefault()
-    
-        props.onAddBackground(text)
-      }
-
-    return (
-        <>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="new-background">Select Background Colour:</label>
-                <input
-                    type="text"
-                    name="new-background"
-                    id="new-background"
-                    value={text}
-                    onChange={handleChange}
-            />
-            <button>Submit</button>
-        </form>
-        </>
-    )
+  return (
+    <>
+      <form>
+        <label htmlFor="new-background">Select Background Colour:</label>
+        <select
+          id="new-background"
+          name="new-background"
+          onChange={handleChange}
+        >
+          <option value="red">Red</option>
+          <option value="orange">Orange</option>
+          <option value="yellow">Yellow</option>
+          <option value="green">Green</option>
+          <option value="blue">Blue</option>
+          <option value="purple">Purple</option>
+          <option value="black">Black</option>
+          <option value="white">White</option>
+        </select>
+      </form>
+    </>
+  )
 }
