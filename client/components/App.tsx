@@ -49,7 +49,6 @@ function App() {
         </>
       </div>
       <div className="navbar">
-        {/* <Colours /> */}
         <h2>Background Colours</h2>
         <AddColourBackgroundForm onAddBackgroundColour={handleBackground} />
         <h2>Pen Colours</h2>
