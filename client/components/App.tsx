@@ -44,7 +44,7 @@ function App() {
       <div className="canvas">
         <>
           {Array.from({ length: 15000 }, (_, index) => (
-            <Pixel key={index} changeBackgroundColour={backgroundColour} />
+            <Pixel key={index} changeBackgroundColour={backgroundColour} changePenColour={penColour} />
           ))}
         </>
       </div>
