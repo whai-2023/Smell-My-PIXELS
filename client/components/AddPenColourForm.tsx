@@ -13,7 +13,12 @@ export default function AddPenColourForm(props: Props) {
     <>
       <form>
         <label htmlFor="new-background">Select Pen Colour:</label>
-        <select id="new-pen" name="new-pen" onChange={handleChange}>
+        <select
+          className="menubar"
+          id="new-pen"
+          name="new-pen"
+          onChange={handleChange}
+        >
           <option value="black">Black</option>
           <option value="white">White</option>
           <option value="red">Red</option>

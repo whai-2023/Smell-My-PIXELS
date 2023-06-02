@@ -14,6 +14,7 @@ export default function AddColourBackgroundForm(props: Props) {
       <form>
         <label htmlFor="new-background">Select Background Colour:</label>
         <select
+          className="menubar"
           id="new-background"
           name="new-background"
           onChange={handleChange}
@@ -26,7 +27,6 @@ export default function AddColourBackgroundForm(props: Props) {
           <option value="green">Green</option>
           <option value="blue">Blue</option>
           <option value="purple">Purple</option>
-
         </select>
       </form>
     </>

@@ -18,6 +18,10 @@ div {
   flex-wrap: wrap;
 }
 
+.menubar {
+  font-family:copperplate;
+}
+
 .navbar {
   display: flex;
   flex: 0.4;
@@ -29,6 +33,7 @@ div {
   background-color: rgb(204, 242, 244);
   color: #000000;
   transition: all 0.5s ease-in-out;
+  font-family:copperplate;
 }
 
 .canvas{
