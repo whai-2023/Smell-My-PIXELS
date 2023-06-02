@@ -1,31 +1,8 @@
 import Pixel from './Pixel'
 import AddColourBackgroundForm from './AddColourBackgroundForm'
 import AddPenColourForm from './AddPenColourForm'
+import ClearCanvasButton from './ClearCanvasButton'
 import { useState } from 'react'
-
-// function Parent() {
-//   const [extraText, setExtraSet] = useState('Something')
-//   // extraText = 'Something'
-//   function changeExtraText() {
-//     setExtraSet('anotherthing')
-//   }
-
-//   return <>
-//     <h1>Hello</h1>
-//     <button onClick={changeExtraText}>wadwa</button>
-//     <Child extraTextToAdd={extraText} />
-//   </>
-// }
-
-// interface childProps {
-//   extraTextToAdd: string
-// }
-
-// function Child(props: childProps) {
-//   console.log(props.extraTextToAdd) // 'anotherthing'
-
-//   return <p>WOW!</p>
-// }
 
 function App() {
   const [backgroundColour, setBackgroundColour] = useState('white')
@@ -38,6 +15,8 @@ function App() {
   function handlePen(newPen: string) {
     setPenColour(newPen)
   }
+
+  function handleClearButton() {}
   console.log(penColour)
   return (
     <div className="app">
@@ -53,6 +32,8 @@ function App() {
         <AddColourBackgroundForm onAddBackgroundColour={handleBackground} />
         <h2>Pen Colours</h2>
         <AddPenColourForm onAddPenColour={handlePen} />
+        <h2>Clear Canvas</h2>
+        <ClearCanvasButton onButtonClearCanvas={handleClearButton} />
       </div>
     </div>
   )
