@@ -16,7 +16,7 @@ export default function ClearCanvasButton(props: Props) {
 
   return (
     <>
-      <button onClick={handleButtonClick}>
+      <button className="menubar" onClick={handleButtonClick}>
         <label htmlFor="new-background">Clear Canvas</label>
       </button>
     </>
