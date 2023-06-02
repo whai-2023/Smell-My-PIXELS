@@ -19,9 +19,7 @@ function App() {
     <div className="app">
       <div className="navbar">
         <h1>Colours!</h1>
-        <h2>Background Colours</h2>
         <AddColourBackgroundForm onAddBackground={handleBackground} />
-        <h2>Pen Colours</h2>
         <AddPenColourForm onAddPenColour={handlePen} />
       </div>
       <div className="canvas">
