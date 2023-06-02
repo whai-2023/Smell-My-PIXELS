@@ -1,14 +1,28 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-export default function Pixel() {
-  const [color, setColor] = useState(getRandomColor())
+interface Props {
+  changeBackgroundColour: string
+}
+
+export default function Pixel(props: Props) {
+  const [color, setColor] = useState(props.changeBackgroundColour)
+  const [isDrawn, setIsDrawn] = useState(false)
+
+  useEffect(() => {
+    // if NOT isDrawn, set colour, else don't set colour
+    if (isDrawn == false) {
+      setColor(props.changeBackgroundColour)
+    }
+  }, [props.changeBackgroundColour])
 
   function handleClick() {
     setColor(getRandomColor())
+    setIsDrawn(true)
   }
 
   function handleDragEnter() {
     setColor('black')
+    setIsDrawn(true)
   }
 
   return (

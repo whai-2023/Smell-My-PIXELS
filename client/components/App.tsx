@@ -2,7 +2,30 @@ import Pixel from './Pixel'
 import AddColourBackgroundForm from './AddColourBackgroundForm'
 import AddPenColourForm from './AddPenColourForm'
 import { useState } from 'react'
-import Colours from './Colours'
+
+// function Parent() {
+//   const [extraText, setExtraSet] = useState('Something')
+//   // extraText = 'Something'
+//   function changeExtraText() {
+//     setExtraSet('anotherthing')
+//   }
+
+//   return <>
+//     <h1>Hello</h1>
+//     <button onClick={changeExtraText}>wadwa</button>
+//     <Child extraTextToAdd={extraText} />
+//   </>
+// }
+
+// interface childProps {
+//   extraTextToAdd: string
+// }
+
+// function Child(props: childProps) {
+//   console.log(props.extraTextToAdd) // 'anotherthing'
+
+//   return <p>WOW!</p>
+// }
 
 function App() {
   const [backgroundColour, setBackgroundColour] = useState('white')
@@ -20,15 +43,15 @@ function App() {
     <div className="app">
       <div className="canvas">
         <>
-          {Array.from({ length: 15000 }, () => (
-            <Pixel />
+          {Array.from({ length: 15000 }, (_, index) => (
+            <Pixel key={index} changeBackgroundColour={backgroundColour} />
           ))}
         </>
       </div>
       <div className="navbar">
         {/* <Colours /> */}
         <h2>Background Colours</h2>
-        <AddColourBackgroundForm onAddBackground={handleBackground} />
+        <AddColourBackgroundForm onAddBackgroundColour={handleBackground} />
         <h2>Pen Colours</h2>
         <AddPenColourForm onAddPenColour={handlePen} />
       </div>
